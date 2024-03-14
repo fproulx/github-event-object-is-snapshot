@@ -1,0 +1,11 @@
+on:
+  pull_request_target:
+    types:
+      - labeled
+permissions: write-all
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - run: sleep 13
+      - run: echo "${{ toJSON(github.event.pull_request.labels.*.name) }}"
